@@ -5,9 +5,8 @@ module.exports = {
     await queryInterface.createTable('Channels', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID
       },
       name: {
         allowNull: false,
@@ -19,7 +18,7 @@ module.exports = {
       },
       departmentId: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         onDelete: 'CASCADE',
         references: {
           model: 'Departments',
