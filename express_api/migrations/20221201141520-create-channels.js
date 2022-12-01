@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Bases', {
+    await queryInterface.createTable('Channels', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,26 +13,30 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      organizationId: {
+      channel_id: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      departmentId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'Organizations',
+          model: 'Departments',
           key: 'id',
         }
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Bases');
+    await queryInterface.dropTable('Channels');
   }
 };

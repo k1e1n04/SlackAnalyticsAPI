@@ -14,6 +14,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       baseId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
